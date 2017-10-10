@@ -1,25 +1,89 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
+	<ion-navbar>
+		<button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Hello Ionic</ion-title>
-  </ion-navbar>
+		<ion-title>Hello Ionic</ion-title>
+	</ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
 
-  <h3>Welcome to your first Ionic app!</h3>
+	<!-- <h3>Welcome to your first Ionic app!</h3>
 
   <p>
     This starter project is our way of helping you get a functional app running in record time.
   </p>
   <p>
     Follow along on the tutorial section of the Ionic docs!
-  </p>
-  <p>
+  </p> -->
+	<!-- <p>
     <button ion-button color="primary" menuToggle>Toggle Menu</button>
-  </p>
+  </p> -->
+	<!-- <div style="display: inline-block;position: fixed;top: 0;bottom: 0;left: 0;right: 0;width: 50px;height: 100px;margin: auto;">    
+		
+	  <ion-icon style="font-size: 50px;color: red" name="add"></ion-icon>
+  </div> -->
+
+	<!-- <button style="display: inline-block;position: fixed;top: 0;bottom: 0;left: 0;right: 0;width: 50px;height: 100px;margin: auto;" ion-button color="danger" outline icon-only>
+		<ion-icon style="font-size: 50px;color: red" name="add"></ion-icon>
+	</button> -->
+	<div *ngIf="isAddPatient">
+		<div>
+			Please Add Patient
+			<hr>
+		</div>
+		<button (click)="addPatient()" style="display: inline-block;position: fixed;top: 0;bottom: 0;left: 0;right: 0;width: 50px;height: 100px;margin: auto;"
+		 ion-button color="danger" clear icon-only>
+		
+			<ion-icon style="font-size: 50px;color: red" name="add"></ion-icon>
+	    </button>
+	</div>
+
+	<div *ngIf="isPatientForm">
+		<form [formGroup]="patientForm"></form>
+		<ion-list>
+			<ion-item>
+				<ion-label floating>Patient Name</ion-label>
+				<ion-input type="text" value=""></ion-input>
+			</ion-item>
+			<ion-item>
+				<ion-label floating>Patient Age</ion-label>
+				<ion-input type="text" value=""></ion-input>
+			</ion-item>
+			<ion-item>
+				<ion-label floating>Patient Home Address</ion-label>
+				<ion-input type="text" value=""></ion-input>
+			</ion-item>
+			<ion-item>
+				<ion-label floating>Patient's Gender</ion-label>
+				<ion-input type="text" value=""></ion-input>
+			</ion-item>
+			<div (click)="submit()">
+				<button ion-button outline>Primary Outline</button>
+			</div>
+		</ion-list>
+
+		<ion-list>
+			<ion-item>
+				<ion-label>Gender</ion-label>
+				<ion-select formControlName="gender">
+					<ion-option *ngFor="let gender of genders" [value]="gender.value">Male</ion-option>
+					{{gender.viewValue}}
+					<!-- <ion-option value="female">Female</ion-option> -->
+				</ion-select>
+				</ion-item>
+		</ion-list>
+	</div>
+
+
+	<!-- <ion-list>
+	<ion-item class="text" *ngFor="let item of items | async">
+		{{item | json}}
+	</ion-item>
+</ion-list> -->
+
+	<!-- <button ion-button round (click)="addPatient()">Add</button> -->
 
 </ion-content>

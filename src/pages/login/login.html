@@ -1,0 +1,37 @@
+<ion-header>
+	<ion-navbar>
+		<button ion-button menuToggle>
+		    <ion-icon name="menu"></ion-icon>	
+	   </button>
+		<ion-title>Login</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<form [formGroup]="loginForm">
+		<ion-list>
+
+			<ion-item>
+				<ion-label floating>Email</ion-label>
+				<ion-input type="text" formControlName="email"></ion-input>
+			</ion-item>
+
+			<ion-item>
+				<ion-label floating>Password</ion-label>
+				<ion-input type="text" formControlName="password"></ion-input>
+			</ion-item>
+
+
+			<div style="text-align : center">
+				<button ion-button round (click)="login()">Login</button>
+			</div>
+
+		</ion-list>
+	</form>
+	<div style="text-align : center">
+		<a (click)="gotoSignup()">Create Account</a>
+	</div>
+</ion-content>
+<!-- <ion-content>
+		welcome to login pages
+</ion-content> -->
