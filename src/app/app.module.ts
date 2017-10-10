@@ -72,7 +72,8 @@ export class AppModule {
 	constructor(ngRedux: NgRedux<AppState>,
 			 private authEpic : AuthEpic){
 		const middleware = [
-			createEpicMiddleware(this.authEpic.Signup)
+      createEpicMiddleware(this.authEpic.Signup),
+      createEpicMiddleware(this.authEpic.saveDataLocally)
 		]
 	ngRedux.configureStore(RootReducer, INITIAL_STATE, middleware)
 	}

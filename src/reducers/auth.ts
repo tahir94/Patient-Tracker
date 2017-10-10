@@ -3,12 +3,12 @@ import { SIGNUP_SUCCESS } from '../actions/auth';
 
 
 export interface AuthState {
- demo : string;
+ patientData : Array<any>;
 
 }
 
 export const AUTH_INITIAL_STATE = {
- demo : null
+ patientData : null
 }
 
 export const AuthReducer = (state: AuthState = AUTH_INITIAL_STATE, action) => {
@@ -18,7 +18,7 @@ export const AuthReducer = (state: AuthState = AUTH_INITIAL_STATE, action) => {
 	case SIGNUP_SUCCESS:
 
 	console.log('reducer log : ', action.payload );
-	return tassign(state,{demo : action.payload})
+	return tassign(state,{patientData : action.payload})
    
 	  default : 
 	return state;

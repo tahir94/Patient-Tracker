@@ -42,39 +42,42 @@
 	</div>
 
 	<div *ngIf="isPatientForm">
-		<form [formGroup]="patientForm"></form>
+		<form [formGroup]="patientForm">
 		<ion-list>
 			<ion-item>
 				<ion-label floating>Patient Name</ion-label>
-				<ion-input type="text" value=""></ion-input>
+				<ion-input formControlName="patientName" type="text" value=""></ion-input>
 			</ion-item>
 			<ion-item>
 				<ion-label floating>Patient Age</ion-label>
-				<ion-input type="text" value=""></ion-input>
+				<ion-input formControlName="patientAge" type="text" value=""></ion-input>
 			</ion-item>
 			<ion-item>
 				<ion-label floating>Patient Home Address</ion-label>
-				<ion-input type="text" value=""></ion-input>
+				<ion-input formControlName="patientAddress" type="text" value=""></ion-input>
 			</ion-item>
-			<ion-item>
+			<!-- <ion-item>
 				<ion-label floating>Patient's Gender</ion-label>
-				<ion-input type="text" value=""></ion-input>
-			</ion-item>
-			<div (click)="submit()">
-				<button ion-button outline>Primary Outline</button>
-			</div>
-		</ion-list>
-
-		<ion-list>
+				<ion-input formControlName="patientGender" type="text" value=""></ion-input>
+			</ion-item> -->
 			<ion-item>
 				<ion-label>Gender</ion-label>
 				<ion-select formControlName="gender">
-					<ion-option *ngFor="let gender of genders" [value]="gender.value">Male</ion-option>
+					<ion-option *ngFor="let gender of genders" [value]="gender.value">
 					{{gender.viewValue}}
+				</ion-option>
 					<!-- <ion-option value="female">Female</ion-option> -->
 				</ion-select>
 				</ion-item>
+			<div>
+				<button ion-button outline (click)="addPatient()">Submit</button>
+			</div>
 		</ion-list>
+
+		<!-- <ion-list> -->
+		
+		<!-- </ion-list> -->
+	</form>
 	</div>
 
 

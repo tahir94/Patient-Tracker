@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { SIGNUP } from '../../actions/auth'
 import { NgRedux } from 'ng2-redux';
@@ -9,7 +9,7 @@ import { FormGroup,FormBuilder,Validators } from "@angular/forms";
   selector: 'page-hello-ionic',
   templateUrl: 'hello-ionic.html'
 })
-export class HelloIonicPage { 
+export class HelloIonicPage implements OnInit { 
   patientForm : FormGroup;
   isPatientForm = false;
   isAddPatient = true; 
@@ -18,8 +18,18 @@ export class HelloIonicPage {
 	  {value : 'male' , viewValue : 'Male'},
 	  {value : 'female' , viewValue : 'Female'}
   ]
-  constructor(private ngRedux : NgRedux<AppState>) {
+  constructor(private ngRedux : NgRedux<AppState>,
+              private fb : FormBuilder) {
+                this.patientForm = this.fb.group({
+                  patientName : '',
+                  patientAge : '',
+                  patientAddress : '',
+                  gender : '' 
+                })
 	// this.items = db.collection('items').valueChanges();
+  }
+  ngOnInit(){
+  
   }
 
   
@@ -30,7 +40,7 @@ export class HelloIonicPage {
 
 	this.ngRedux.dispatch({
 		type : SIGNUP,
-		payload : 'send data to epics'
+		payload : this.patientForm.value
 	})  
 	  
   }
