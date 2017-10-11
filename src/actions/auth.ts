@@ -6,4 +6,6 @@ export const LOGIN = 'LOGIN';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAILED = 'LOGIN_FAILED';
 
-export const SET_DATA_LOCALLLY =  'SET_DATA_LOCALLLY'
+export const SET_DATA_LOCALLLY =  'SET_DATA_LOCALLLY';
+export const LOCAL_DATA_SUCCESS =  'LOCAL_DATA_SUCCESS';
+export const DELETE =  'DELETE' ;
