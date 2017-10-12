@@ -1,1 +1,1 @@
-export { AuthEpic } from './auth';
+export { AuthEpic } from './patient';

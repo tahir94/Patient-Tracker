@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Patient List</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content style="background :#398AFF;">
+  <ion-list>
+	<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+    <button  style="background :#398AFF;color: white" ion-item *ngFor="let a of items; let i = index" (click)="itemTapped($event, a, i)">
+	  {{a.patientName}}
+	</button>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,40 @@
+<ion-header>
+	<ion-navbar>
+		<button menuToggle *ngIf="!selectedItem">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+		<ion-title>Patient Details of {{ selectedItem.patientName.toUpperCase() }}</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content style="background :#398AFF">
+	<div text-center *ngIf="selectedItem">
+		<div style="color : white;background :#398AFF" ion-item   *ngFor="let a of keys(selectedItem)" >
+			
+			<div style="background :#398AFF;display: flex;justify-content: space-between;">  
+			<span >
+				{{a}} :
+			</span>
+			<span >
+				{{selectedItem[a]}}
+			</span>
+		</div>
+		</div>
+		<!-- <table>
+			<tr *ngFor="let a of keys(selectedItem)" style="width: 100vw;padding : 30px;color :white;display: table-row;">
+				<td style="padding : 35px"></td> -->
+				<!-- <hr style="color :white"> -->
+				<!-- <td style="padding : 35px">:</td> -->
+				<!-- <hr> -->
+				<!-- <td style="padding : 35px;"></td>
+			</tr>
+		</table> -->
+		<!-- <button style="color :white;background :#398AFF" ion-item *ngFor="let a of keys(selectedItem)">
+		  {{a}}: {{selectedItem[a]}} <br/>
+		</button> -->
+		<button style="top : 200px;background:red;color:white;width : 100px" ion-button color="danger" (click)="deleteInd()">
+			Delete
+		</button>
+		<!-- <button ion-button style="background :#03A9F4;width: 100px;" (click)="addPatient()">Submit</button> -->
+	</div>
+</ion-content>

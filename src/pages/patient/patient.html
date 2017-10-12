@@ -1,0 +1,75 @@
+<ion-header>
+	<ion-navbar>
+		<button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+		<ion-title>Hello Ionic</ion-title>
+	</ion-navbar>
+</ion-header>
+
+
+<ion-content style="background-image: url(http://miriadna.com/desctopwalls/images/max/White-sand-in-blur.jpg);background-size: 296%;background-repeat: no-repeat;">
+	<div  *ngIf="isAddPatient">
+		<h2 style="text-align : center">
+			Please Add Patient
+			<hr>
+		</h2>
+		<button (click)="add()" style="display: inline-block;position: fixed;top: 0;bottom: 0;left: 0;right: 0;width: 50px;height: 100px;margin: auto;"
+		 ion-button color="danger" clear icon-only>
+		
+			<ion-icon style="font-size: 50px;color: red" name="add"></ion-icon>
+	    </button>
+	</div>
+	<!-- https://cdn.pixabay.com/photo/2014/04/04/14/55/silver-313347_960_720.jpg -->
+	<div  *ngIf="isPatientForm">
+		<div style="padding: 0;">
+			<img src="http://miriadna.com/desctopwalls/images/max/White-sand-in-blur.jpg" alt="">
+		</div>
+		<form  [formGroup]="patientForm">
+			<ion-list style="opacity:1.0;position: relative;background :#398AFF;height: 365px;">
+				<ion-item style="background :#398AFF;color:white;padding :5px;float : left">
+
+					<ion-label style="color : white;width: 20px; padding: 0; margin: 0">
+						<ion-icon name="md-person-add"></ion-icon>
+					</ion-label>
+
+					<ion-input  color="danger" placeholder="Patient Name" formControlName="patientName" type="text" value=""></ion-input>
+				</ion-item>
+				<ion-item style="background :#398AFF;color :white;padding :5px">
+				<ion-label style="color : white;width: 20px; padding: 0; margin: 0">
+					<ion-icon name="md-person"></ion-icon>
+			    </ion-label>
+					<ion-input formControlName="patientAge" type="text" placeholder="Patient Age" value=""></ion-input>
+				</ion-item>
+
+
+				<ion-item style="background :#398AFF;color : white;padding :5px">
+						<ion-label style="color : white;width: 20px; padding: 0; margin: 0">
+						   <ion-icon  name="md-home"></ion-icon>
+						</ion-label>
+					<ion-input placeholder="Patient Home Address" formControlName="patientAddress" type="text" value=""></ion-input>
+
+				</ion-item>
+
+
+				<ion-item style="background :#398AFF;color : white;padding :15px">
+					<ion-label style="color : white;width: 20px; padding: 0; margin: 0">
+						<ion-icon  name="ios-man"></ion-icon>Gender</ion-label>
+					<ion-select formControlName="gender">
+						<ion-option *ngFor="let gender of genders" [value]="gender.value">
+							{{gender.viewValue}}
+						</ion-option>
+					</ion-select>
+				</ion-item>
+				<div style="background :#398AFF;text-align : center">
+					<!-- <button ion-button color="danger" outline (click)="addPatient()">Submit</button> -->
+					<!-- <button ion-button round outline style="background:red">Submit</button>
+					 -->
+					 <button ion-button style="color : #03A9F4;background :white;width: 100px;"  (click)="addPatient()">Submit</button>
+				</div>
+			</ion-list>
+			<!-- </div> -->
+		</form>
+	</div>
+
+</ion-content>

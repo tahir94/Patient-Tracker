@@ -4,11 +4,10 @@ import { IonicApp, IonicModule, IonicErrorHandler, NavController } from 'ionic-a
 import { IonicStorageModule } from '@ionic/storage';
 import { MyApp } from './app.component';
 
-import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
-import { ItemDetailsPage } from '../pages/item-details/item-details';
-import { ListPage } from '../pages/list/list';
-import { LoginPage } from '../pages/login/login';
-import { SignupPage } from '../pages/signup/signup';
+import { patientPage } from '../pages/patient/patient';
+import { patientDetailsPage } from '../pages/patient-details/patient-details';
+import { ListPage } from '../pages/patient-list/patient-list';
+
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -39,11 +38,9 @@ export const firebaseConfig = {
 @NgModule({
 	declarations: [
 		MyApp,
-		HelloIonicPage,
-		ItemDetailsPage,
-		ListPage,
-		LoginPage,
-		SignupPage
+		patientPage,
+		patientDetailsPage,
+		ListPage
 	],
 	imports: [
 		BrowserModule,
@@ -59,11 +56,9 @@ export const firebaseConfig = {
 	bootstrap: [IonicApp],
 	entryComponents: [
 		MyApp,
-		HelloIonicPage,
-		ItemDetailsPage,
-		ListPage,
-		LoginPage,
-		SignupPage
+		patientPage,
+		patientDetailsPage,
+		ListPage
 	],
 	providers: [
 		AuthEpic,
@@ -74,11 +69,11 @@ export const firebaseConfig = {
 })
 export class AppModule {
 	constructor(ngRedux: NgRedux<AppState>,
-		private authEpic: AuthEpic) {
+		private patientEpic: AuthEpic) {
 		const middleware = [
-			createEpicMiddleware(this.authEpic.Signup),
-			createEpicMiddleware(this.authEpic.saveDataLocally),
-			createEpicMiddleware(this.authEpic.deleteInd)
+			createEpicMiddleware(this.patientEpic.Signup),
+			createEpicMiddleware(this.patientEpic.saveDataLocally),
+			createEpicMiddleware(this.patientEpic.deleteInd)
 		]
 		ngRedux.configureStore(RootReducer, INITIAL_STATE, middleware)
 	}
