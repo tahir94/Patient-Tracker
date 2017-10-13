@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { SIGNUP } from '../../actions/patient'
+import { ADD_PATIENT } from '../../actions/patient'
 import { NgRedux } from 'ng2-redux';
 import { AppState } from '../../reducers/rootReducer';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
@@ -17,20 +17,20 @@ export class patientPage implements OnInit {
 	isPatientForm = false;
 	isAddPatient = true;
 	items: Observable<any[]>;
-	
+
 	genders = [
 		{ value: 'male', viewValue: 'Male' },
 		{ value: 'female', viewValue: 'Female' }
 	]
 	constructor(private ngRedux: NgRedux<AppState>,
-		        private fb: FormBuilder, public navCtrl: NavController) {
+		private fb: FormBuilder, public navCtrl: NavController) {
 		this.patientForm = this.fb.group({
-			patientName: '',
-			patientAge: '',
-			patientAddress: '',
-			gender: ''
+			patientName: [null, Validators.required],
+			patientAge: [null, Validators.required],
+			patientAddress: [null, Validators.required],
+			gender: [null, Validators.required]
 		})
-	
+
 	}
 	ngOnInit() {
 
@@ -46,9 +46,16 @@ export class patientPage implements OnInit {
 		this.isPatientForm = true;
 
 		this.ngRedux.dispatch({
-			type: SIGNUP,
+			type: ADD_PATIENT,
 			payload: this.patientForm.value,
 			navCtrl: () => this.navCtrl.push(ListPage)
 		})
+		// this.patientForm.value.patientName = "";
+		// this.patientForm.value.patientAge = "";
+		// this.patientForm.value.patientAddress = "";
+		// this.patientForm.value.gender = "";
+
+		this.patientForm.reset();
+
 	}
 }

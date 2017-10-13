@@ -2,3 +2,38 @@ page-hello-ionic {
 
 }
 
+.add-button{
+	display: inline-block;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 50px;
+	height: 100px;
+	margin: auto;
+}
+.ion-list{
+	position: relative;background :#398AFF;height: 365px;
+}
+.patient-name{
+	background :#398AFF;color:white;padding :5px;float : left
+}
+.patient-age{
+	background :#398AFF;color :white;padding :5px
+}
+.patient-address{
+	background :#398AFF;color : white;padding :5px
+}
+.patient-gender{
+	background :#398AFF;color : white;padding :15px
+}
+#label{
+	color : white;width: 20px; padding: 0; margin: 0
+}
+.div-button{
+	background :#398AFF;text-align : center	
+}
+.patient-button{
+	color : #03A9F4;background :white;width: 100px;
+}

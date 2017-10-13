@@ -1,5 +1,5 @@
-export const SIGNUP = 'SIGNUP';
-export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
+export const ADD_PATIENT = 'ADD_PATIENT';
+export const ADD_PATIENT_SUCCESS = 'ADD_PATIENT_SUCCESS';
 export const SIGNUP_FAILED = 'SIGNUP_FAILED';
 
 export const LOGIN = 'LOGIN';
