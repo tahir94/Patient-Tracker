@@ -77,7 +77,6 @@ export class PatientEpic {
 									})
 								})
 							})
-						// this.newData = [...data];
 					}
 				})
 				return Observable.of()
